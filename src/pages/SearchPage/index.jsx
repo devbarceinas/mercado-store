@@ -1,7 +1,11 @@
+import { Product } from "../../components/Product"
+
 const SearchPage = () => {
   return (
     <article>
-      <section>SearchPage</section>
+      <section>
+        <Product/>
+      </section>
     </article>
   )
 }

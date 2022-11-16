@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react"
 
-const useGetData = (path) => {
+const useGetData = (url) => {
   const [status, setStatus] = useState('idle')
   const [data, setData] = useState([])
-  const [url, setUrL] = useState(path)
-
-  useEffect(() => {
-    const controller = new AbortController()
-    fetchData()
-    return () => controller.abort()
-  }, [url])
 
   const fetchData = async () => {
     setStatus('fetching');
@@ -24,6 +17,12 @@ const useGetData = (path) => {
       setStatus('fetched')
     }
   }
+
+  useEffect(() => {
+    const controller = new AbortController()
+    fetchData()
+    return () => controller.abort()
+  }, [])
 
   return {fetchData, data, status}
 }

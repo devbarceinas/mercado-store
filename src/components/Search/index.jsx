@@ -1,41 +1,42 @@
+import { useContext, useEffect, useState } from 'react'
 import { createSearchParams, useNavigate } from 'react-router-dom'
+import { Context } from '../../hooks/useAppContext'
 
 import logo from '../../assets/images/Logo_ML.png'
 import iconSearch from '../../assets/images/ic_Search.png'
 
-import { useState } from 'react'
-
 import './styles.scss'
 
 const Search = () => {
+  const { dispatch } = useContext(Context)
   const [search, setSearch] = useState('')
 
   const navigate = useNavigate()
-
+ 
   const onSearch = event => {
     const { value } = event.target
     setSearch(value)
   }
 
-  const handleSearch = event => {
+  const handleSearch = async (event) => {
     event.preventDefault()
-
     if (search !== '') {
+      dispatch({ type: 'setProduct', payload: search })
       navigate({
         pathname: 'items',
         search: createSearchParams({
           search: search
         }).toString()
       })
+      setSearch('')
+      return;
     }
-    
-    setSearch('')
   }
 
   return (
     <nav className='navContainer'>
       <img src={logo} alt="Logo ML" />
-      <section className='inputContainer'>
+      <form className='inputContainer'>
         <input 
           type="text" 
           placeholder='Nunca dejes de buscar' 
@@ -47,7 +48,7 @@ const Search = () => {
           src={iconSearch} 
           alt="Icon Search" 
           onClick={handleSearch} />
-      </section>
+      </form>
     </nav>
   )
 }
