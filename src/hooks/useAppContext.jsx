@@ -1,14 +1,15 @@
-import { createContext, useContext, useReducder } from 'react'
+import { createContext, useReducer, useContext } from 'react'
+import { reducer } from './utils'
 
 const Context = createContext()
 const useAppContext = () => useContext(Context)
 
 const initialState = {
-  product: '',
+  product: {},
 }
 
 const AppContext = ({ children }) => {
-  const [state, dispatch] = useReducder(appReducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
   
   const values = {
     state,
