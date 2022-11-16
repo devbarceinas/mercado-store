@@ -1,6 +1,24 @@
 @import '../../abstracts/variables';
 
 .navContainer {
+  display: flex;
   background-color: $color-yellow;
-  padding: 10px;
+  padding: 10px 200px;
+  justify-content: space-between;
+}
+
+.inputContainer {
+  display: flex;
+  & input {
+    width: 1020px;
+    border-color: $color-white-search;
+    border-style: none;
+    & {
+      padding: 0 10px;
+    }
+  }
+  & img {
+    background-color: $color-white-search;
+    padding: 10px;
+  }
 }
