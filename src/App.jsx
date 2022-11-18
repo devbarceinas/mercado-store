@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Layout } from './Layout'
 import { SearchPage } from './pages/SearchPage'
-import { ProductsDetails } from './pages/ProductsPage'
+import { ProductsPage } from './pages/ProductsPage'
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Layout/>}>
-          <Route path='/items' element={<SearchPage/>} />
-          <Route path='/items:id' element={<ProductsDetails/>} />
+          <Route index path='/items' element={<ProductsPage/>} />
+          <Route path='/items:id' element={<SearchPage/>} />
         </Route>
       </Routes>
     </Router>

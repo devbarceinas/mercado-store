@@ -1,0 +1,24 @@
+.productContainer {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  margin-top: 32px;
+  & img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+  }
+  & div {
+    margin-top: 26px;
+    & {
+      font-size: 18px;
+      width: 50%;
+      margin-left: 10px;
+    }
+  }
+  & span {
+    margin-left: 10%;
+    margin-top: 7%;
+    color: gray;
+    font-size: 12px;
+  }
+}

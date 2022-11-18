@@ -1,19 +1,26 @@
-import { useContext } from 'react'
-import { Context } from '../../hooks/useAppContext'
-import { useGetData } from '../../hooks/useGetData'
+import './styles.scss'
 
-const API_URL = 'https://api.mercadolibre.com'
+const moneyFormat = (value) => {
+  const money = Intl.NumberFormat(
+    'es-AR',
+    {
+      styles: 'currency',
+      currency: 'ARS'
+    }
+  ).format(value)
+  return money
+}
 
-const Product = () => {
-  const { state: { product } } = useContext(Context)
-  const {data, status} = useGetData(`${API_URL}/sites/MLA/search?q=${product}`)
-
-  console.log(data)
-
+const Product = ({ item }) => {
   return (
-    <article>
-      <section>Product</section>
-    </article>
+    <section className='productContainer'>
+      <img src={item?.picture} alt={item?.title} />
+      <div>
+        <p style={{fontWeight: 'bold'}}>$ {moneyFormat(item?.price?.amount)}</p>
+        <p>{item?.title}</p>
+      </div>
+      <span>{item?.address}</span>
+    </section>
   )
 }
 

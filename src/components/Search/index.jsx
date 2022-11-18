@@ -18,7 +18,7 @@ const Search = () => {
     setSearch(value)
   }
 
-  const handleSearch = async (event) => {
+  const handleSearch = (event) => {
     event.preventDefault()
     if (search !== '') {
       dispatch({ type: 'setProduct', payload: search })
@@ -28,15 +28,13 @@ const Search = () => {
           search: search
         }).toString()
       })
-      setSearch('')
-      return;
     }
   }
 
   return (
     <nav className='navContainer'>
       <img src={logo} alt="Logo ML" />
-      <form className='inputContainer'>
+      <form onSubmit={handleSearch} className='inputContainer'>
         <input 
           type="text" 
           placeholder='Nunca dejes de buscar' 
@@ -47,7 +45,7 @@ const Search = () => {
         <img 
           src={iconSearch} 
           alt="Icon Search" 
-          onClick={handleSearch} />
+        />
       </form>
     </nav>
   )
