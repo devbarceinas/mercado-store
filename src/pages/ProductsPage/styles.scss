@@ -2,11 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.cardContainer {
-  background-color: white;
-  padding: 16px;
-  width: 72%;
-  margin: 50px 50px;
+  & section {
+    background-color: white;  
+    width: 55%;
+    margin-top: 50px;
+  }
 }

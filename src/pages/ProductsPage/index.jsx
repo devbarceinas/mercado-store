@@ -1,8 +1,6 @@
-import { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Product } from '../../components/Product'
 import { When } from '../../components/When'
-import { Context } from '../../hooks/useAppContext'
 import { useFetchProducts } from '../../hooks/useFetchProducts'
 
 import replace from 'lodash/fp/replace'
@@ -10,20 +8,19 @@ import split from 'lodash/fp/split'
 
 import './styles.scss'
 
-// const parseQueryString = (query) => {
-//   const [, value] = split('=', replace('?', '', query))
-//   return value
-// }
+const parseQueryString = (query) => {
+  const [, value] = split('=', replace('?', '', query))
+  return value
+} 
 
 const ProductsPage = () => {
-  const { state: { product } } = useContext(Context)
   const location = useLocation()
-  // const query = parseQueryString(location.search)
-  const {products, loading} = useFetchProducts(product)
+  const query = parseQueryString(location.search)
+  const {products, loading} = useFetchProducts(query)
 
   return (
     <div className='productsContainer'>
-      <section className='cardContainer'>
+      <section>
         <When predicate={loading}>
           <p>Cargando...</p>
         </When>

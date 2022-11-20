@@ -2,23 +2,27 @@
 
 .navContainer {
   display: flex;
+  justify-content: space-around;
+  height: auto;
   background-color: $color-yellow;
-  padding: 10px 200px;
-  justify-content: space-between;
+  padding: 16px;
+  & img {
+    width: 4rem;
+  }
 }
 
-.inputContainer {
+.form {
   display: flex;
-  & input {
-    width: 1020px;
-    border-color: $color-white-search;
-    border-style: none;
-    & {
-      padding: 0 10px;
-    }
+  justify-content: flex-end;
+  & input[type='text'] {
+    min-width: 520%;
+    font-size: 18px;
+    padding: 6px;
+    border: none;
+    outline: none;
   }
-  & img {
+  & input[type='image'] {
+    padding: 12px;
     background-color: $color-white-search;
-    padding: 10px;
   }
 }

@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { createSearchParams, useNavigate } from 'react-router-dom'
-import { Context } from '../../hooks/useAppContext'
 
 import logo from '../../assets/images/Logo_ML.png'
 import iconSearch from '../../assets/images/ic_Search.png'
@@ -8,7 +7,6 @@ import iconSearch from '../../assets/images/ic_Search.png'
 import './styles.scss'
 
 const Search = () => {
-  const { dispatch } = useContext(Context)
   const [search, setSearch] = useState('')
 
   const navigate = useNavigate()
@@ -21,7 +19,6 @@ const Search = () => {
   const handleSearch = (event) => {
     event.preventDefault()
     if (search !== '') {
-      dispatch({ type: 'setProduct', payload: search })
       navigate({
         pathname: 'items',
         search: createSearchParams({
@@ -34,7 +31,7 @@ const Search = () => {
   return (
     <nav className='navContainer'>
       <img src={logo} alt="Logo ML" />
-      <form onSubmit={handleSearch} className='inputContainer'>
+      <form onSubmit={handleSearch} className='form'>
         <input 
           type="text" 
           placeholder='Nunca dejes de buscar' 
@@ -42,9 +39,9 @@ const Search = () => {
           value={search}
           onChange={onSearch}
         />
-        <img 
+        <input
+          type="image" 
           src={iconSearch} 
-          alt="Icon Search" 
         />
       </form>
     </nav>
