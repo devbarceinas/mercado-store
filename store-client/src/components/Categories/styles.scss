@@ -1,0 +1,15 @@
+@import '../../abstracts/variables';
+
+.categoriesContainer {
+  display: flex;
+  font-family: $font-lato;
+  margin-left: 22.5%;
+  color: $color-gray-search;
+  .categorie + p:before {
+    padding: 6px;
+    color: $color-gray-search;
+    content: ">\00a0";
+  } & p:last-child {
+    font-weight: bold;
+  }
+}

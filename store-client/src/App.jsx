@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Layout } from './layout'
-import { SearchPage } from './pages/SearchPage'
+import { ProductDetailPage } from './pages/ProductDetailPage'
 import { ProductsPage } from './pages/ProductsPage'
 
 const App = () => {
@@ -8,8 +8,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/' element={<Layout/>}>
-          <Route index path='/items' element={<ProductsPage/>} />
-          <Route path='/items:id' element={<SearchPage/>} />
+          <Route path='items' element={<ProductsPage/>} />
+          <Route path='items/:id' element={<ProductDetailPage/>} />
         </Route>
       </Routes>
     </Router>

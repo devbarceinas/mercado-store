@@ -1,24 +1,20 @@
-const API_URL = 'https://api.mercadolibre.com'
-const getProducts = async (product) => {
-  const path = `${API_URL}/sites/MLA/search?q=${product}&limit=4`
-  const response = await fetch(path)
-  const { results } = await response.json()
-  const newData = results?.map(type => ({
-    id: type?.id,
-    title: type?.title,
-    address: type?.address?.state_name,
-    price: {
-      currency: type?.prices?.prices[0].currency_id,
-      amount: type?.prices?.prices[0].amount,
-    },
-    picture: type?.thumbnail,
-    condition: type?.condition,
-    free_shipping: type?.shipping?.free_shipping,
-  }))
+import axios from 'axios'
 
-  return newData
+const API_URL = 'http://localhost:8081'
+
+const getProducts = async (product) => {
+  const path = `${API_URL}/api/items?q=${product}`
+  const response = await axios.get(path)
+  return { response }
+}
+
+const getProductDetail = async (id) => {
+  const path = `${API_URL}/api/items/${id}`
+  const response = await axios.get(path)
+  return { response }
 }
 
 export { 
   getProducts,
+  getProductDetail,
 }

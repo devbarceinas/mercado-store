@@ -3,18 +3,27 @@ import { getProducts } from "../services/getProducts"
 
 const useFetchProducts = (nameProduct) => {
   const [products, setProducts] = useState([])
+  const [typeCategories, setTypeCatagories] = useState([])
   const [loading, setLoading] = useState(true)
+
   const executePreducts = async () => {
-    const GET_PRODUCTS = await getProducts(nameProduct)
-    setProducts(GET_PRODUCTS)
-    setLoading(false)
+    try {
+      const { response } = await getProducts(nameProduct)
+      const { items, categories } = response?.data
+      setProducts(items)
+      setTypeCatagories(categories)
+      setLoading(false)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   useEffect(() => {
     executePreducts()
   }, [nameProduct])
 
-  return { products, loading }
+
+  return { products, typeCategories, loading }
 }
 
 export { useFetchProducts }

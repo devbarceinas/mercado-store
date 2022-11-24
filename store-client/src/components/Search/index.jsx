@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { createSearchParams, useNavigate } from 'react-router-dom'
+import { createSearchParams, useNavigate, Link } from 'react-router-dom'
 
 import logo from '../../assets/images/Logo_ML.png'
 import iconSearch from '../../assets/images/ic_Search.png'
@@ -30,7 +30,9 @@ const Search = () => {
 
   return (
     <nav className='navContainer'>
-      <img src={logo} alt="Logo ML" />
+      <Link to='/'>
+        <img src={logo} alt="Logo ML" />
+      </Link>
       <form onSubmit={handleSearch} className='form'>
         <input 
           type="text" 

@@ -1,28 +1,22 @@
+import { useNavigate } from 'react-router-dom'
+import { moneyFormat } from '../../utils/utils'
+
 import './styles.scss'
 
-const moneyFormat = (value) => {
-  const money = Intl.NumberFormat(
-    'es-AR',
-    {
-      styles: 'currency',
-      currency: 'ARS'
-    }
-  ).format(value)
-  return money
-}
-
 const Product = ({ item }) => {
+  const navigate = useNavigate()
+
   return (
-    <div className='productContainer'>
+    <div className='productContainer' onClick={() => navigate(item?.id)}>
       <div>
         <img src={item?.picture} alt={item?.title} />
         <div className='info'>
-          <p style={{fontWeight: 'bold'}}>$ {moneyFormat(item?.price?.amount)}</p>
+          <p className='infoPrice'>$ {moneyFormat(item?.price?.amount)}</p>
           <p>{item?.title}</p>
         </div>
       </div>
       <div className='address'>
-        <p>{item?.address}</p>
+        <p>{item?.city}</p>
       </div>
     </div>
   )

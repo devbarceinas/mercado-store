@@ -1,34 +1,31 @@
 import { useLocation } from 'react-router-dom'
 import { Product } from '../../components/Product'
+import { Categories } from '../../components/Categories'
 import { When } from '../../components/When'
+import { Container } from '../../components/Container'
 import { useFetchProducts } from '../../hooks/useFetchProducts'
-
-import replace from 'lodash/fp/replace'
-import split from 'lodash/fp/split'
+import { parseQueryString } from '../../utils/utils'
+import { Loading } from '../../components/Loading'
 
 import './styles.scss'
-
-const parseQueryString = (query) => {
-  const [, value] = split('=', replace('?', '', query))
-  return value
-} 
 
 const ProductsPage = () => {
   const location = useLocation()
   const query = parseQueryString(location.search)
-  const {products, loading} = useFetchProducts(query)
+  const {products, typeCategories, loading} = useFetchProducts(query)
 
-  return (
-    <div className='productsContainer'>
-      <section>
+  return ( 
+    <>
+      <Categories typeCategories={typeCategories} />
+      <Container>
         <When predicate={loading}>
-          <p>Cargando...</p>
+          <Loading/>
         </When>
         {products?.map(item => (
           <Product key={item?.id} item={item} />
         ))}
-      </section>
-    </div>
+      </Container>
+    </>
   )
 }
 

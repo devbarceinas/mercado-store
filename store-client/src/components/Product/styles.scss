@@ -1,5 +1,7 @@
+@import '../../abstracts/variables';
+
 .productContainer {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $font-lato;
   display: flex;
   margin: 18px;
   & div {
@@ -13,16 +15,22 @@
       height: 180px;
       object-fit: cover;
     }
-    & .info {
+    .info {
       display: block;
       margin-left: 16px;
+      color: $color-gray-search;
+      .infoPrice {
+        font-weight: 'bold';
+        color: $color-black-search;
+        font-size: 20px;
+      }
     }
   }
   & .address {
     margin-right: 100px;
     padding-top: 40px;
     & p {
-      color: gray;
+      color: $color-gray-search;
       font-size: 12px;
     }
   }

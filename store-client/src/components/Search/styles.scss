@@ -1,3 +1,4 @@
+
 @import '../../abstracts/variables';
 
 .navContainer {
@@ -15,11 +16,13 @@
   display: flex;
   justify-content: flex-end;
   & input[type='text'] {
+    font-family: $font-lato;
     min-width: 520%;
     font-size: 18px;
     padding: 6px;
     border: none;
     outline: none;
+    color: $color-black-search
   }
   & input[type='image'] {
     padding: 12px;
