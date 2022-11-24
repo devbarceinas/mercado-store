@@ -1,6 +1,6 @@
 # Test Práctico - Frontend
 
-Mercado Store cuenta cons dos carpetas una para el server y otra para el client.
+Mercado Store cuenta con dos carpetas una para el server y otra para el cliente.
 
 ## store-client
 
@@ -16,3 +16,8 @@ Ejecutar los siguiente comandos para instalar y levantar el server:
 yarn - Instala todas las dependencias
 yarn start-dev - Para ejecutar el servidor
 ```
+
+Hay muchas mejoras las cuales me hubiese gustado agregar
+pero por temas de carga de trabajo no pude agregarlas, pero espero sea de su agrado.
+
+:)
