@@ -7,8 +7,6 @@ import { useFetchProducts } from '../../hooks/useFetchProducts'
 import { parseQueryString } from '../../utils/utils'
 import { Loading } from '../../components/Loading'
 
-import './styles.scss'
-
 const ProductsPage = () => {
   const location = useLocation()
   const query = parseQueryString(location.search)

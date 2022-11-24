@@ -9,7 +9,6 @@ const useFetchProductDetail = (id) => {
     try {
       const { response } = await getProductDetail(id)
       const { items } = response.data
-      console.log(items)
       setDetail(items)
       setLoading(false)
     } catch (error) {

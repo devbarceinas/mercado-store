@@ -17,7 +17,7 @@
   justify-content: flex-end;
   & input[type='text'] {
     font-family: $font-lato;
-    min-width: 520%;
+    min-width: 500%;
     font-size: 18px;
     padding: 6px;
     border: none;
@@ -25,7 +25,7 @@
     color: $color-black-search
   }
   & input[type='image'] {
-    padding: 12px;
+    padding: 14px;
     background-color: $color-white-search;
   }
 }
