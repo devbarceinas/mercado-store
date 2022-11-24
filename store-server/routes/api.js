@@ -8,7 +8,6 @@ const baseUrl = app_config.host
 
 router.get('/items', async (req, res) => {
   const { q } = req.query
-  console.log(req)
   try {
     let items = []
     let categories = []
@@ -45,7 +44,6 @@ router.get('/items', async (req, res) => {
 
 router.get('/items/:id', async (req, res) => {
   const { id } = req.params
-  console.log(id)
   try {
     let items = []
     if (id !== '') {
